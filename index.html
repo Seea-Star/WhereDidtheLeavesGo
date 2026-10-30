@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where Did the Leaves Go?</title>
+  
+  <!-- FAVICON & FONTS -->
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Seea-Star/Howl/refs/heads/main/stamp-5.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    /* SFONDO VERDE SALVIA PALLIDO CON GRIGLIA CHIARA */
+    body {
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px 15px;
+      font-family: 'Quicksand', sans-serif;
+      color: #111111;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      background: #e8f0e8;
+    }
+
+    /* Trama a griglia sottile sullo sfondo */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+      background-size: 25px 25px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .site-wrapper {
+      max-width: 800px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 1. LOGO PRINCIPALE IN ALTO */
+    .top-banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .top-banner img.logo-img {
+      max-width: 100%;
+      width: 450px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(3px 3px 0px #111111);
+      transition: transform 0.3s ease;
+    }
+
+    .top-banner img.logo-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* BLOCCHI DI TESTO / DIARIO CON EFFETTO HOVER */
+    .diary-paper {
+      background: #fcfcf8;
+      border: 3px solid #111111;
+      border-radius: 14px;
+      padding: 22px 25px;
+      box-shadow: 5px 5px 0px #111111;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .diary-paper:hover {
+      transform: translateY(-4px);
+      box-shadow: 8px 8px 0px #111111;
+    }
+
+    .diary-paper p {
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.7;
+      color: #222222;
+    }
+
+    /* 2. WIDGET DI SCRATCH SENZA CORNICE */
+    .scratch-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .scratch-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 485px;
+      aspect-ratio: 485 / 402;
+      overflow: hidden;
+    }
+
+    .scratch-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* 4. WIDGET STILE SMARTPHONE PER I POST SOCIAL (SCROLLABILE) */
+    .phone-container {
+      width: 100%;
+      max-width: 340px;
+      height: 580px;
+      margin: 0 auto;
+      background: #111111;
+      border: 4px solid #111111;
+      border-radius: 36px;
+      padding: 12px;
+      box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .phone-notch {
+      width: 100px;
+      height: 14px;
+      background: #111111;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      margin-bottom: 8px;
+      z-index: 2;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 2px solid #222222;
+    }
+
+    .phone-screen iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* 6. IMMAGINE DELLA STANZA COMPLETAMENTE PULITA (SENZA CORNICI/OMBRE) */
+    .room-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .room-container img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+    }
+
+    /* 7. PULSANTE PER IL CAPITOLO SUCCESSIVO */
+    .next-btn {
+      display: inline-block;
+      background: #ffffff;
+      color: #111111;
+      padding: 12px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-align: center;
+      border: 3px solid #111;
+      box-shadow: 4px 4px 0px #111;
+      align-self: center;
+      margin-top: 15px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .next-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 6px 6px 0px #111;
+    }
+
+    /* MEDIA QUERY PER SCHERMI STRETTI */
+    @media (max-width: 480px) {
+      body {
+        padding: 20px 10px;
+      }
+      .diary-paper {
+        padding: 16px 18px;
+      }
+      .phone-container {
+        height: 520px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="site-wrapper">
+
+    <!-- 1. LOGO PRINCIPALE -->
+    <header class="top-banner">
+      <img src="Logo.png" alt="Where Did the Leaves Go?" class="logo-img" onerror="this.parentElement.innerHTML='<h1 style=\'font-size:1.8rem; font-weight:800; text-align:center;\'>Where Did the Leaves Go?</h1>'">
+    </header>
+
+    <!-- 2. WIDGET DI SCRATCH SENZA CORNICE -->
+    <div class="scratch-container">
+      <div class="scratch-wrapper">
+        <iframe src="https://scratch.mit.edu/projects/1395312417/embed" class="scratch-iframe" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- 3. PRIMO BLOCCO DI TESTO -->
+    <div class="diary-paper">
+      <p>I was just lying in my room, exhausted after a long day at school, when the news ticker suddenly flashed across the screen. They claimed entire sections of the northern forest were simply... gone. It has to be a glitch, right? Things like this don't just happen out of nowhere...</p>
+    </div>
+
+    <!-- 4. TELEFONO SCROLLABILE PER I POST -->
+    <div class="phone-container">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <iframe src="posts.html" title="Social Feed"></iframe>
+      </div>
+    </div>
+
+    <!-- 5. SECONDO BLOCCO DI TESTO -->
+    <div class="diary-paper">
+      <p>Nobody seems to know what's really going on. My friends in the chat are panicking, but some people online are saying it's all fake news. Then I noticed something strange right outside my own window... something green that definitely shouldn't be there.</p>
+    </div>
+
+    <!-- 6. IMMAGINE DELLA STANZA (SENZA ALCUN BORDO O OMBRA) -->
+    <div class="room-container">
+      <img src="Room.png" alt="Tired in the Room" onerror="this.parentElement.innerHTML='<div style=\'padding:20px; font-weight:bold; text-align:center;\'>🛏️ Room.png Image</div>'">
+    </div>
+
+    <!-- 7. PULSANTE PER IL CAPITOLO SUCCESSIVO -->
+    <a href="chapter2.html" class="next-btn">NEXT CHAPTER &rarr;</a>
+
+  </div>
+
+</body>
+</html>
