@@ -12,9 +12,9 @@
       padding: 0;
     }
 
-    /* SFONDO INTERNO DEL TELEFONO */
+    /* SFONDO INTERNO DEL TELEFONO: UN TONO LEGGERMENTE DIVERSO (AVORIO CALDO) */
     body {
-      background-color: #fcfcf8;
+      background-color: #f4f1ea;
       padding: 0;
       display: flex;
       flex-direction: column;
@@ -23,7 +23,7 @@
       font-family: sans-serif;
     }
 
-    /* BARRA SUPERIORE A TUTTA LARGHEZZA */
+    /* BARRA SUPERIORE A TUTTA LARGHEZZA (BIANCA PER STACCARE) */
     .social-header {
       position: sticky;
       top: 0;
@@ -33,23 +33,23 @@
       border-bottom: 2px solid #111111;
       padding: 10px 15px;
       display: flex;
-      justify-content: space-between; /* Spinge il logo a sinistra e il profilo a destra */
+      justify-content: space-between;
       align-items: center;
       z-index: 10;
     }
 
-    /* LOGO DEL SOCIAL A SINISTRA (BEN VISIBILE) */
+    /* LOGO DEL SOCIAL A SINISTRA */
     .header-logo-img {
-      height: 38px; /* Dimensione grande e chiara */
+      height: 38px;
       width: auto;
       max-width: 60%;
       object-fit: contain;
       display: block;
     }
 
-    /* FOTO PROFILO A DESTRA (CERCHIO BEN VISIBILE) */
+    /* FOTO PROFILO A DESTRA */
     .header-profile-container {
-      width: 40px; /* Dimensione ideale per la foto profilo */
+      width: 40px;
       height: 40px;
       border-radius: 50%;
       border: 2px solid #111111;
@@ -69,13 +69,13 @@
     .feed-scroll-container {
       flex: 1;
       overflow-y: auto;
-      padding: 12px;
+      padding: 15px 12px;
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
 
-    /* CONTENITORE DEL SINGOLO POST (IMMAGINE + BARRA PULSANTI) */
+    /* CONTENITORE DEL SINGOLO POST */
     .post-card {
       display: flex;
       flex-direction: column;
@@ -96,7 +96,7 @@
       border-radius: 8px;
     }
 
-    /* BARRA PULSANTI A TUTTA LARGHEZZA */
+    /* BARRA PULSANTI SOTTO L'IMMAGINE */
     .post-buttons {
       width: 100%;
       display: flex;
@@ -119,10 +119,8 @@
 
   <!-- BARRA SUPERIORE CON LOGO A SINISTRA E PROFILO A DESTRA -->
   <header class="social-header">
-    <!-- Logo Social (Sinistra) -->
     <img src="app-logo.png" alt="App Logo" class="header-logo-img" onerror="this.parentElement.innerHTML='<span style=\'font-weight:800; font-size:1.1rem;\'>LeafGram</span>'">
 
-    <!-- Foto Profilo (Destra) -->
     <div class="header-profile-container">
       <img src="profile.png" alt="Profile" onerror="this.style.display='none'">
     </div>
