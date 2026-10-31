@@ -1,45 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style> 
-body {
-background-image: url("https://raw.githubusercontent.com/Seea-Star/Img/refs/heads/main/769a10cdeea6faac175855854ea75e41.jpg") ;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Feed</title>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-#example1 {
-  border: 2px solid red;
-  padding: 10px;
-  border-radius: 25px;
-}
+    /* SFONDO INTERNO DEL TELEFONO */
+    body {
+      background-color: #fcfcf8;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
-#example2 {
-  border: 5px solid black;
-  padding: 20px;
-  border-radius: 40px 40px 40px 10px;
-  background-color: #F3EEDA
-}
-p {
-font-size: 15px;
-}
+    /* CONTENITORE DEL SINGOLO POST (IMMAGINE + BARRA PULSANTI) */
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
 
-}
-#abc {
-    font-size: 10px;
-}
+    /* IMMAGINE PRINCIPALE DEL POST */
+    .post-img {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
 
-#ab{
-    border: 5px solid black;
-  padding: 20px;
-  border-radius: 40px 40px 40px 10px;
-  background-color: #F3EEDA
-}
-hr{
-    border: #000000;
-}
-<style>
+    .post-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    /* BARRA DEI PULSANTI SOTTO L'IMMAGINE (TRASPARENTE E PULITA) */
+    .post-buttons {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 0 4px;
+    }
+
+    .post-buttons img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+  </style>
 </head>
 <body>
 
-<img src=https://raw.githubusercontent.com/Seea-Star/Cosmic-S-Watchlist/refs/heads/main/watchlist-04.png>
+  <!-- POST 1 -->
+  <div class="post-card">
+    <div class="post-img">
+      <img src="https://raw.githubusercontent.com/Seea-Star/Cosmic-S-Watchlist/refs/heads/main/watchlist-01.png" alt="Post 1">
+    </div>
+    <div class="post-buttons">
+      <img src="button-bar.png" alt="Actions" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <!-- POST 2 -->
+  <div class="post-card">
+    <div class="post-img">
+      <img src="https://raw.githubusercontent.com/Seea-Star/Cosmic-S-Watchlist/refs/heads/main/watchlist-02.png" alt="Post 2">
+    </div>
+    <div class="post-buttons">
+      <img src="button-bar.png" alt="Actions" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <!-- POST 3 -->
+  <div class="post-card">
+    <div class="post-img">
+      <img src="https://raw.githubusercontent.com/Seea-Star/Cosmic-S-Watchlist/refs/heads/main/watchlist-03.png" alt="Post 3">
+    </div>
+    <div class="post-buttons">
+      <img src="button-bar.png" alt="Actions" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <!-- POST 4 -->
+  <div class="post-card">
+    <div class="post-img">
+      <img src="https://raw.githubusercontent.com/Seea-Star/Cosmic-S-Watchlist/refs/heads/main/watchlist-04.png" alt="Post 4">
+    </div>
+    <div class="post-buttons">
+      <img src="button-bar.png" alt="Actions" onerror="this.style.display='none'">
+    </div>
+  </div>
+
 </body>
 </html>
