@@ -20,9 +20,10 @@
       flex-direction: column;
       height: 100vh;
       overflow: hidden;
+      font-family: sans-serif;
     }
 
-    /* BARRA SUPERIORE UNICA (LOGO A SINISTRA + PROFILO A DESTRA) */
+    /* BARRA SUPERIORE A TUTTA LARGHEZZA */
     .social-header {
       position: sticky;
       top: 0;
@@ -30,20 +31,41 @@
       width: 100%;
       background: #ffffff;
       border-bottom: 2px solid #111111;
-      padding: 8px 12px;
+      padding: 10px 15px;
       display: flex;
-      justify-content: center;
+      justify-content: space-between; /* Spinge il logo a sinistra e il profilo a destra */
       align-items: center;
       z-index: 10;
     }
 
-    .social-header img {
-      max-height: 28px; /* Regola l'altezza se vuoi farla più grande o più piccola */
+    /* LOGO DEL SOCIAL A SINISTRA (BEN VISIBILE) */
+    .header-logo-img {
+      height: 38px; /* Dimensione grande e chiara */
       width: auto;
+      max-width: 60%;
+      object-fit: contain;
       display: block;
     }
 
-    /* AREA DEI POST SCROLLABILE */
+    /* FOTO PROFILO A DESTRA (CERCHIO BEN VISIBILE) */
+    .header-profile-container {
+      width: 40px; /* Dimensione ideale per la foto profilo */
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #111111;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #eee;
+    }
+
+    .header-profile-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* AREA SCROLLABILE DEI POST */
     .feed-scroll-container {
       flex: 1;
       overflow-y: auto;
@@ -61,7 +83,6 @@
       width: 100%;
     }
 
-    /* IMMAGINE PRINCIPALE DEL POST */
     .post-img {
       width: 100%;
       display: flex;
@@ -75,7 +96,7 @@
       border-radius: 8px;
     }
 
-    /* BARRA DEI PULSANTI SOTTO L'IMMAGINE (TRASPARENTE E PULITA) */
+    /* BARRA PULSANTI A TUTTA LARGHEZZA */
     .post-buttons {
       width: 100%;
       display: flex;
@@ -96,10 +117,15 @@
 </head>
 <body>
 
-  <!-- BARRA SUPERIORE CON L'IMMAGINE UNICA (LOGO + PROFILO) -->
+  <!-- BARRA SUPERIORE CON LOGO A SINISTRA E PROFILO A DESTRA -->
   <header class="social-header">
-    <!-- Sostituisci 'header-bar.png' con il nome esatto della tua immagine combinata -->
-    <img src="header-bar.png" alt="Social Header" onerror="this.parentElement.innerHTML='<span style=\'font-weight:800; font-size:0.85rem;\'>Social App</span>'">
+    <!-- Logo Social (Sinistra) -->
+    <img src="app-logo.png" alt="App Logo" class="header-logo-img" onerror="this.parentElement.innerHTML='<span style=\'font-weight:800; font-size:1.1rem;\'>LeafGram</span>'">
+
+    <!-- Foto Profilo (Destra) -->
+    <div class="header-profile-container">
+      <img src="profile.png" alt="Profile" onerror="this.style.display='none'">
+    </div>
   </header>
 
   <!-- CONTENITORE SCROLLABILE DEI POST -->
